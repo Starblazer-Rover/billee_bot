@@ -26,3 +26,8 @@ ROS's main form of communication is messages. Each package will need to use mess
 If you need to make a specific message, look up the ROS documentation for it and follow the description  
 An example of this would be when I made an IMU message using the camera's IMU data for the robot_localization package  
 
+## Autonomous Movement
+To start, autonomous movement uses everything based off of transforms
+Transforms are the locations of something relative to the robot's COM (base_link)
+A general overview of these transforms would be: 
+'''sensor_links -> base_link -> odom -> map -> world'''
