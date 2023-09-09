@@ -1,33 +1,28 @@
-## Setup
-Create a workspace folder (eg. `ros2_ws`)
+## Introduction
+Welcome to the software team of Billee!
+This file will have all the information that you need to develop for this team
+Please skim through this file to gain a basic understanding of what we are doing.
+This is meant to be a resource you can go back to if you forget the name of a certain package we are using, or any methodology that we have implemented
 
-In the workspace folder create an `src` folder
+## Hardware
+For our computer we are using the Jetson Orin Nano which has the NVIDIA Jetpack packages installed on Ubuntu 20.04
+For image data, depth data, and IMU data, we are using the Intel Realsense D435i
+Other general sensors include encoders and GPS
+We are using the Roboclaw 7x2a for the motor controller (Being reconsidered due to power draw from motors)
 
-Clone this repo inside the `src` folder
+## Software Framework
+We are using ROS2 Humble as our software framework
+Currently, it is source installed on our Jetson but this is a tedious way to use ROS and will be transfered to an Ubuntu 22.04 docker at some point.
+As a brief description, ROS is a publisher subscriber architecture communicating through a network
 
-`cd ..` to go back to the `ros2_ws` directory, and then create your ros package with `colcon build --symlink-install`
+## Movement
+The movement code is under the manual_movement package in the organization
+In this package, I set up a publisher which looks at controller inputs and publishes them
+I also set up a subscriber which sees the published inputs and transfers them into motor movement
+This is not the final implementation, as the motor movements should be based on a velocity topic which Nav2 also publishes to
 
-## Sourcing
-`cd ros2_ws/`
+## Messages
+ROS's main form of communication is messages. Each package will need to use messages to function.
+If you need to make a specific message, look up the ROS documentation for it and follow the description
+An example of this would be when I made an IMU message using the camera's IMU data for the robot_localization package
 
-`source install/setup.bash`
-
-`source /opt/ros/foxy/setup.bash`
-
-Stay in ros2_ws directory when launching files from this project.
-
-## URDF Commands
-Recommended in order in separate terminal tabs
-
-Robot State Publisher: `ros2 launch billee_bot rsp.launch.py`
-
-Joint State Publisher GUI: `ros2 run joint_state_publisher_gui joint_state_publisher_gui`
-
-RViz (from ~/ros2_ws): `rviz2 -d src/billee_bot/config/view_bot.rviz`
-
-## Full Sim Launch File
-RSP with Gazebo world: `ros2 launch billee_bot launch_sim.launch.py world:=./src/billee_bot/worlds/cone_obstacles.world`
-
-Rviz Config: `rviz2 -d src/billee_bot/config/depth_camera.rviz`
-
-Teleop Keyboard Control: `ros2 run teleop_twist_keyboard teleop_twist_keyboard`
