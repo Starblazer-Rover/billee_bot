@@ -30,6 +30,6 @@ An example of this would be when I made an IMU message using the camera's IMU da
 To start, autonomous movement uses everything based off of transforms
 Transforms are the locations of something relative to the robot's COM (base_link)
 A general overview of these transforms would be: 
-'''
-sensor_links -> base_link -> odom -> map -> world
+'''  
+sensor_links -> base_link -> odom -> map -> world  
 '''
