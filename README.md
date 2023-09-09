@@ -1,5 +1,5 @@
 ## Introduction
-Welcome to the software team of Billee!
+Welcome to the software team of Billee!\n
 This file will have all the information that you need to develop for this team
 Please skim through this file to gain a basic understanding of what we are doing.
 This is meant to be a resource you can go back to if you forget the name of a certain package we are using, or any methodology that we have implemented
