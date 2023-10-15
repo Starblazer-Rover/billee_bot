@@ -34,7 +34,8 @@ def generate_launch_description():
                                                            True, True, True,
                                                            False, False, False,
                                                            True, True, True,
-                                                           True, True, True]}])
+                                                           True, True, True]
+                                           "publish_tf": 'true'}])
     
     cost_map = Node(package="nav2_costmap_2d", executable="nav2_costmap_2d", 
                     parameters=[{"file": "$(find nav2_costmap_2d)/launch/example/example_params.yaml",
@@ -45,5 +46,4 @@ def generate_launch_description():
         rsp,
         imu,
         robot_localization,
-        cost_map
     ])
