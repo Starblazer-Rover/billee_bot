@@ -23,7 +23,7 @@ def generate_launch_description():
                 get_package_share_directory(package_name), 'launch', 'rsp.launch.py'
             )
         ]),
-        launch_arguments={'use_sim_time': 'true'}.items()
+        launch_arguments={'use_sim_time': 'false'}.items()
     )
 
     imu = Node(package='realsense_camera', executable="imu")
@@ -34,8 +34,11 @@ def generate_launch_description():
                                                            True, True, True,
                                                            False, False, False,
                                                            True, True, True,
-                                                           True, True, True]
-                                           "publish_tf": 'true'}])
+                                                           True, True, True],
+                                           "publish_tf": True,
+                                           "base_link_frame": "base_link",
+                                           "odom_frame": "odom",
+                                           "world_frame": 'odom'}])
     
     cost_map = Node(package="nav2_costmap_2d", executable="nav2_costmap_2d", 
                     parameters=[{"file": "$(find nav2_costmap_2d)/launch/example/example_params.yaml",
