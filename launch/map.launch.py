@@ -28,7 +28,7 @@ def generate_launch_description():
     imu = Node(package='realsense_camera', executable="imu")
 
     robot_localization = Node(package='robot_localization', executable='ukf_node',
-                              parameters=[{'imu0': '/odom/imu',
+                              parameters=[{'imu0': '/odom/Imu',
                                            "imu0_config": [False, False, False,
                                                            True, True, True,
                                                            False, False, False,
