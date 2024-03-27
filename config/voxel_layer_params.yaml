@@ -1,0 +1,25 @@
+# Voxel layer plugin parameters
+voxel_layer:
+  # Frame ID for the costmap
+  global_frame: "map"
+  
+  # Topic to subscribe to for PointCloud2 data
+  point_cloud_topic: "/map/PointCloud2"
+  
+  # Size of the voxel grid
+  x_length: 10.0
+  y_length: 10.0
+  z_length: 2.0
+  
+  # Voxel resolution
+  voxel_size: 0.1
+  
+  # Minimum and maximum height thresholds for including points in the costmap
+  z_min: -1.0
+  z_max: 1.0
+  
+  # Occupancy threshold for voxelization (values above this threshold are considered occupied)
+  occupancy_threshold: 0.5
+  
+  # Voxel filter size (size of the voxel grid used for filtering)
+  filter_size: 3
