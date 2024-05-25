@@ -191,7 +191,7 @@
     <joint name="imu_joint" type="fixed">
         <parent link="chassis"/>
         <child link="imu_link"/>
-        <origin xyz="${camera_width / 2} 0 ${chassis_z + (camera_height / 2)}" rpy="0 0 ${pi}"/>
+        <origin xyz="${chassis_x - (camera_width / 2) - 6.5} 2.5 ${chassis_z + (camera_height / 2)}" rpy="0 0 ${pi}"/>
     </joint>
 
     <link name="imu_link">
