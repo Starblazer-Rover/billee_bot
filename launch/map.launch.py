@@ -1,8 +1,9 @@
+import launch
 from launch import LaunchDescription
 from launch_ros.actions import Node
-from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
+<<<<<<< HEAD
     # Get the package share directory
     your_package_share_directory = get_package_share_directory('billee_bot')
 
@@ -60,3 +61,26 @@ def generate_launch_description():
 
 
     return ld
+=======
+    return LaunchDescription([
+        # rtabmap node
+        Node(
+            package='rtabmap_launch',
+            executable='rtabmap',
+            name='rtabmap',
+            output='screen',
+            parameters=[
+                {'subscribe_depth': True},
+                {'subscribe_rgb': False},
+                {'subscribe_rgb_info': False},
+                {'frame_id': 'base_link'},
+                {'odom_frame_id': 'odom'}
+            ],
+            remappings=[
+                ('depth/image', '/map/PointCloud2'),
+                ('depth/camera_info', '/custom/depth/camera_info'),
+                ('odom', '/custom/odom')
+            ]
+        )
+    ])
+>>>>>>> 589ef42 (feat: 5/31/2024)
