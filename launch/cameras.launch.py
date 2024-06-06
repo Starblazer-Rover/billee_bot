@@ -47,10 +47,22 @@ def generate_launch_description():
                 }
             ]
         )
+    
+    camera_5 = Node(
+            package='realsense_camera',
+            executable='client',
+            parameters=[
+                {
+                    'topic': '/camera1',
+                    'port': 12350
+                }
+            ]
+        )
 
     return LaunchDescription([
         camera_1,
         camera_2,
         camera_3,
-        camera_4
+        camera_4,
+        camera_5
     ])
