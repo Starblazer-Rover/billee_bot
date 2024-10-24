@@ -11,12 +11,6 @@ find_package(rclpy REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 
-rosidl_generate_interfaces(${PROJECT_NAME}
-  "srv/CostMap.srv"
-  "srv/TargetPoint.srv"
-  DEPENDENCIES geometry_msgs nav_msgs
-)
-
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
 
@@ -28,7 +22,7 @@ if(BUILD_TESTING)
 endif()
 
 install(
-  DIRECTORY config description launch worlds meshes scripts srv
+  DIRECTORY description launch
   DESTINATION share/${PROJECT_NAME}
 )
 
